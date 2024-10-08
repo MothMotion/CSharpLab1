@@ -36,7 +36,7 @@ internal class Program {
     a3 = Convert.ToInt32(System.Console.ReadLine());
     System.Console.WriteLine($"|{a3}| = {x.absol(a3)}\n");
 
-    System.Console.Write("is35\nВведите число и будет выведено True, если число делится на 3 и 5.\nЧисло:");
+    System.Console.Write("is35\nВведите число и будет выведено True, если число делится либо на 3, либо на 5.\nЧисло:");
     a3 = Convert.ToInt32(System.Console.ReadLine());
     System.Console.WriteLine($"Вывод: {x.is35(a3)}\n");
 
@@ -174,7 +174,7 @@ internal class Program {
   }
 
   public bool is35(int x) {
-    return !(absol(x)%3 > 0) && !(absol(x)%5 > 0);
+    return !(absol(x)%3 > 0) ^ !(absol(x)%5 > 0);
   }
 
   public int max3(int x, int y, int z) {
