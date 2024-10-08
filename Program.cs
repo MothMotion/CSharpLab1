@@ -10,9 +10,9 @@ internal class Program {
     System.Console.WriteLine($"Дробная часть {a1} = {x.fraction(a1)}\n====\n");
 
     char a2;
-    System.Console.WriteLine("charToInt\nВведите цифру, и она будет переведена из char в int:");
+    System.Console.WriteLine("charToNum\nВведите цифру, и она будет переведена из char в int:");
     a2 = Convert.ToChar(System.Console.ReadLine());
-    System.Console.WriteLine($"{a2} >> {x.charToInt(a2)}\n====\n");
+    System.Console.WriteLine($"{a2} >> {x.charToNum(a2)}\n====\n");
 
     int a3;
     System.Console.WriteLine("is2Digits\nВведите число и будет выведено true, если число двузначное:");
@@ -147,7 +147,7 @@ internal class Program {
     return absol(x) - Convert.ToInt32(absol(x));
   }
 
-  public int charToInt(char x) {
+  public int charToNum(char x) {
     if(Convert.ToInt32(x) - Convert.ToInt32('0') > 9 || Convert.ToInt32(x) - Convert.ToInt32('0') < 0)
       return -1;
     return Convert.ToInt32(x) - Convert.ToInt32('0');
