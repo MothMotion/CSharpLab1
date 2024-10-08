@@ -160,7 +160,7 @@ internal class Program {
   public bool isInRange(int a, int b, int num) {
     if(a > b)
       return isInRange(b, a, num);
-    return a < num && num < b;
+    return a <= num && num <= b;
   }
 
   public bool isEqual(int a, int b, int c) {
