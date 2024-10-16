@@ -9,10 +9,13 @@ internal class Program {
     a1 = Convert.ToDouble(System.Console.ReadLine());
     System.Console.WriteLine($"Дробная часть {a1} = {x.fraction(a1)}\n====\n");
 
-    char a2;
-    System.Console.WriteLine("charToNum\nВведите цифру, и она будет переведена из char в int:");
-    a2 = Convert.ToChar(System.Console.ReadLine());
-    System.Console.WriteLine($"{a2} >> {x.charToNum(a2)}\n====\n");
+    String a2 = "";
+    System.Console.WriteLine("charToInt\nВведите цифру, и она будет переведена из char в int:");
+    a2 = Convert.ToString(System.Console.ReadLine());
+    if(a2.Length == 1)
+      System.Console.WriteLine($"{a2} >> {x.charToInt(a2[0])}\n====\n");
+    else
+      System.Console.WriteLine($"Строка {a2} длинее 1 символа.\n");
 
     int a3;
     System.Console.WriteLine("is2Digits\nВведите число и будет выведено true, если число двузначное:");
@@ -55,7 +58,7 @@ internal class Program {
     a3 = Convert.ToInt32(System.Console.ReadLine());
     System.Console.WriteLine($"{x.day(a3)}\n");
 
-    System.Console.Write("listNums\nВведите число, и будет выведен список чисел от него, до 0 включительно.\nЧисло:");
+    System.Console.Write("listNums\nВведите число, и будет выведен список чисел оn 0 до него включительно.\nЧисло:");
     a3 = Convert.ToInt32(System.Console.ReadLine());
     System.Console.WriteLine($"{x.listNums(a3)}\n");
 
@@ -76,31 +79,45 @@ internal class Program {
     a3 = Convert.ToInt32(System.Console.ReadLine()); x.rightTriangle(a3);
     System.Console.WriteLine("\n");
 
-    System.Console.Write("findFirst\nВведите размер массива, он будет сгенерирован автоматически:\nРазмер:");
-    a3 = Convert.ToInt32(System.Console.ReadLine());
+
+    do {
+      System.Console.Write("findFirst\nВведите размер массива, он будет сгенерирован автоматически:\nРазмер:");
+      a3 = Convert.ToInt32(System.Console.ReadLine());
+    } while(a3 <= 0);
     int[] arr1 = new int[a3]; fillRandom(ref arr1, -100, 100); System.Console.Write($"Массив заполнен следующими значениями:\n{printArr(arr1)}\nВведите число, которое нужно найти, если число не удалось найти, выведится -1:");
     a3 = Convert.ToInt32(System.Console.ReadLine());
     System.Console.WriteLine($"Вывод: {x.findFirst(arr1, a3)}");
 
-    System.Console.Write("maxAbs\nВведите размер массива, и он будет сгенерирован автоматически:\nРазмер:"); 
-    a3 = Convert.ToInt32(System.Console.ReadLine());
+    do {
+      System.Console.Write("maxAbs\nВведите размер массива, и он будет сгенерирован автоматически:\nРазмер:"); 
+      a3 = Convert.ToInt32(System.Console.ReadLine());
+    } while(a3 <= 0);
     int[] arr2 = new int[a3]; fillRandom(ref arr2, -100, 100);
     System.Console.WriteLine($"Массив заполнен следующими значениями:\n{printArr(arr2)}\nМаксимальный модуль в этом массиве: {x.maxAbs(arr2)}\n");
 
-    System.Console.Write("add\nВведите размер первого массива, и он будет сгенерирован автоматически:\nРазмер:");
-    a3 = Convert.ToInt32(System.Console.ReadLine());
-    int[] arr3 = new int[a3]; fillRandom(ref arr3, -100, 100); System.Console.Write($"Массив заполнен следующими значениями:\n {printArr(arr3)}\nВведите размер второго массива, и он будет сгенерирован автоматически:\nРазмер:");
-    a3 = Convert.ToInt32(System.Console.ReadLine());
+    do {
+      System.Console.Write("add\nВведите размер первого массива, и он будет сгенерирован автоматически:\nРазмер:");
+      a3 = Convert.ToInt32(System.Console.ReadLine());
+    } while(a3 <= 0);
+    int[] arr3 = new int[a3]; fillRandom(ref arr3, -100, 100); System.Console.Write($"Массив заполнен следующими значениями:\n {printArr(arr3)}");
+    do {
+      System.Console.Write($"\nВведите размер второго массива, и он будет сгенерирован автоматически:\nРазмер:");
+      a3 = Convert.ToInt32(System.Console.ReadLine());
+    } while(a3 <= 0);
     int[] arr4 = new int[a3]; fillRandom(ref arr4, -100, 100); System.Console.Write($"Массив заполнен следующими значениями:\n {printArr(arr4)}\nВведите позицию, в которую нужно вставить второй массив.\nПозиция будет преобразована в clamp(позиция, 0, длины первого массива).\nПозиция:");
     a3 = Convert.ToInt32(System.Console.ReadLine());
     System.Console.WriteLine($"Итоговый массив выглядит как:\n{printArr(x.add(arr3, arr4, a3))}");
 
-    System.Console.Write("reverseBack\nВведите размер массива, и он будет сгенерирован автоматически:\nРазмер:");
-    a3 = Convert.ToInt32(System.Console.ReadLine());
+    do {
+      System.Console.Write("reverseBack\nВведите размер массива, и он будет сгенерирован автоматически:\nРазмер:");
+      a3 = Convert.ToInt32(System.Console.ReadLine());
+    } while(a3 <= 0);
     int[] arr5 = new int[a3]; fillRandom(ref arr5, -100, 100); System.Console.WriteLine($"Массив заполнен следущими значениями:\n{printArr(arr5)}\nИнверсированный массив:\n{printArr(x.reverseBack(arr5))}\n");
 
-    System.Console.Write("findAll\nВведите размер массива, и он будет сгенерирован автоматически:\nРазмер:");
-    a3 = Convert.ToInt32(System.Console.ReadLine());
+    do {
+      System.Console.Write("findAll\nВведите размер массива, и он будет сгенерирован автоматически:\nРазмер:");
+      a3 = Convert.ToInt32(System.Console.ReadLine());
+    } while(a3 <= 0);
     int[] arr6 = new int[a3]; fillRandom(ref arr6, -10, 10); System.Console.Write($"Массив заполнен следующими значениями:\n{printArr(arr6)}\nВведите число, которое нужно найти, и будет выведены все позиции данного числа в массиве, или -1, если они не найдены.\nЧисло:");
     a3 = Convert.ToInt32(System.Console.ReadLine());
     System.Console.WriteLine($"Вывод: ${printArr(x.findAll(arr6, a3))}");
@@ -118,6 +135,11 @@ internal class Program {
   }
 
   static public void fillRandom(ref int[] arr, int min, int max) {
+    if(min > max) {
+      int t = min;
+      min = max;
+      max = t;
+    }
     Random rnd = new Random();
     for(int i=0; i<arr.Length; ++i)
       arr[i] = rnd.Next(min, max);
@@ -142,12 +164,13 @@ internal class Program {
 
 
   public double fraction(double x) {
-    if(absol(x) < 1)
-      return absol(x);
-    return absol(x) - Convert.ToInt32(absol(x));
+    x = absol(x);
+    if(Convert.ToInt32(x) > x)
+      return x - Convert.ToInt32(x) + 1;
+    return x - Convert.ToInt32(x);
   }
 
-  public int charToNum(char x) {
+  public int charToInt(char x) {
     if(Convert.ToInt32(x) - Convert.ToInt32('0') > 9 || Convert.ToInt32(x) - Convert.ToInt32('0') < 0)
       return -1;
     return Convert.ToInt32(x) - Convert.ToInt32('0');
@@ -205,12 +228,9 @@ internal class Program {
   }
 
   public String listNums(int x) {
-    if(x<0)
-      return "";
-    String result = $"{x--}";
-
-    for(; x >= 0; --x)
-      result += $" {x}";
+    String result = ""; 
+    for(int i=0; i<=x; ++i)
+      result += $" {i}";
 
     return result;
   }
@@ -239,6 +259,10 @@ internal class Program {
   }
 
   public void square(int x) {
+    if(x <= 0) {
+      System.Console.Write("\nНеверно введёная сторона.\n");
+      return;
+    }
     for(int i=0; i<x; ++i) {
       for(int j=0; j<x; ++j)
         System.Console.Write("*");
@@ -247,6 +271,10 @@ internal class Program {
   }
 
   public void rightTriangle(int x) {
+    if(x <= 0) {
+      System.Console.Write("\nНеверно введёная сторона.\n");
+      return;
+    }
     for(int i=0; i<x; ++i) {
       for(int j=0; j<x; ++j) {
         if(i+j >= x-1)
